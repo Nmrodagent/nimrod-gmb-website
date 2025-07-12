@@ -1,21 +1,106 @@
-<!DOCTYPE html><html lang="de">
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NIMROD – Lokale GMB-Agentur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
-    header { background: #007bff; color: white; padding: 2rem; text-align: center; }
-    section { padding: 2rem; }
-    .angebot { background: white; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    h2 { color: #007bff; }
-    footer { text-align: center; padding: 1rem; background: #e9ecef; font-size: 0.9rem; }
-    img.logo { max-width: 120px; display: block; margin: 0 auto 1rem; }@media (max-width: 768px) {
-  header, section { padding: 1rem; }
-  .angebot { padding: 1rem; }
-  h1 { font-size: 1.5rem; }
-}
-
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #0056b3, #007bff);
+      color: white;
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.07) 30%, transparent 70%);
+      animation: spin 40s linear infinite;
+      z-index: 0;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    header .logo {
+      max-width: 140px;
+      margin: 0 auto 1rem;
+      z-index: 1;
+      position: relative;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      padding: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h1, p {
+      z-index: 1;
+      position: relative;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      animation: fadeIn 1s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .angebot {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .angebot:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h2 {
+      color: #007bff;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    h3 {
+      color: #333;
+    }
+    ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f1f3f5;
+      font-size: 0.95rem;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      header, section { padding: 1rem; }
+      .angebot { padding: 1rem; }
+      h1 { font-size: 1.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -23,7 +108,9 @@
     <img src="nimrod-logo.png" alt="NIMROD Logo" class="logo">
     <h1>NIMROD – Deine GMB-Agentur für mehr lokale Kunden</h1>
     <p>Google Business Profil Optimierung | Rezensionen | Backlinks</p>
-  </header>  <section>
+  </header>
+
+  <section>
     <h2>Was ich für dein Unternehmen tun kann:</h2>
     <div class="angebot">
       <h3>Starter Paket – 99€ (einmalig)</h3>
@@ -32,29 +119,32 @@
         <li>Texte, Bilder, Keywords, Öffnungszeiten</li>
         <li>Beratung inklusive</li>
       </ul>
-    </div><div class="angebot">
-  <h3>Pro Paket – 199€/Monat</h3>
-  <ul>
-    <li>Starter Paket enthalten</li>
-    <li>3 Google Posts / Monat</li>
-    <li>Bewertungsmanagement</li>
-    <li>Monatsreporting</li>
-  </ul>
-</div>
+    </div>
 
-<div class="angebot">
-  <h3>Premium Paket – 299€/Monat</h3>
-  <ul>
-    <li>Pro Paket enthalten</li>
-    <li>Backlink-Service (10 Citations pro Monat)</li>
-    <li>Erweiterte SEO-Optimierung</li>
-    <li>Zusätzliche Beratung</li>
-  </ul>
-</div>
+    <div class="angebot">
+      <h3>Pro Paket – 199€/Monat</h3>
+      <ul>
+        <li>Starter Paket enthalten</li>
+        <li>3 Google Posts / Monat</li>
+        <li>Bewertungsmanagement</li>
+        <li>Monatsreporting</li>
+      </ul>
+    </div>
 
-<p><strong>Interessiert?</strong> Schreib mir per WhatsApp: <a href="https://wa.me/436644623784">‪+43 664 4623784‬</a><br />Oder per E-Mail: <a href="mailto:nmrodagent@gmail.com">nmrodagent@gmail.com</a></p>
+    <div class="angebot">
+      <h3>Premium Paket – 299€/Monat</h3>
+      <ul>
+        <li>Pro Paket enthalten</li>
+        <li>Backlink-Service (10 Citations pro Monat)</li>
+        <li>Erweiterte SEO-Optimierung</li>
+        <li>Zusätzliche Beratung</li>
+      </ul>
+    </div>
 
-  </section>  <footer>
+    <p><strong>Interessiert?</strong> Schreib mir per WhatsApp: <a href="https://wa.me/436644623783">+43 664 4623783</a><br />Oder per E-Mail: <a href="mailto:nmrodagent@gmail.com">nmrodagent@gmail.com</a></p>
+  </section>
+
+  <footer>
     &copy; 2025 NIMROD – Lokale Sichtbarkeit, die wirkt.
   </footer>
 </body>
