@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nimrod – Pakete & Preise | Lokales Online-Marketing</title>
-  <meta name="description" content="Nimrod: Google Business (Maps), Social Media und Website für lokale Unternehmen. Pakete & Preise." />
+  <meta name="description" content="Nimrod: Google Business (Maps), Social Media und Website für lokale Unternehmen. Klare Pakete, faire Preise, monatlich kündbar." />
   <style>
     :root{
       --bg:#0b0d10; --card:#11151a; --muted:#91a0b7; --text:#eaf1fb;
@@ -17,14 +17,14 @@
     .wrap{max-width:var(--max);margin:0 auto;padding:28px}
     header{display:grid;gap:12px;margin:8px 0 24px}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:40px;height:40px}
+    .logo{width:42px;height:42px;border-radius:10px;object-fit:contain;display:block}
     .wordmark{font-weight:800;letter-spacing:.2px}
-    header h1{font-size:clamp(28px,4vw,42px);margin:0}
+    header h1{font-size:clamp(28px,4vw,42px);margin:4px 0 0}
     header p{margin:0;color:var(--muted);max-width:70ch}
     .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(91,140,255,.12);border:1px solid var(--ring);color:#cfe0ff;padding:6px 10px;border-radius:999px;font-size:12px}
 
     .grid{display:grid;gap:var(--gap)}
-    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
+    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
 
     .card{
       background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
@@ -40,7 +40,7 @@
     ul.features li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:flex-start}
     .dot{width:8px;height:8px;border-radius:50%;margin-top:7px;background:var(--accent)}
     .muted{color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);font-weight:700}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);font-weight:700;cursor:pointer}
     .btn-primary{background:var(--brand);border-color:transparent;color:white;box-shadow:0 6px 18px rgba(91,140,255,.25)}
     .section{margin:36px 0 14px}
     .section h2{margin:0 0 8px;font-size:24px}
@@ -51,44 +51,235 @@
     footer{margin:36px 0 12px;color:var(--muted);font-size:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .footbrand{display:flex;align-items:center;gap:10px}
     .note{font-size:13px;color:var(--muted)}
+    .list{display:grid;gap:10px}
+    .ok{color:#b2f5c7}
+    .danger{color:#ffb4b4}
+    .table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    .table td{padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+    .table td:first-child{border-top-left-radius:10px;border-bottom-left-radius:10px;font-weight:600}
+    .table td:last-child{border-top-right-radius:10px;border-bottom-right-radius:10px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
-        <!-- Logo-Platzhalter -->
-        <svg class="logo" viewBox="0 0 64 64" fill="none" xmlns="nimrod-agent.png" aria-label="Nimrod Logo">
-          <circle cx="32" cy="32" r="30" stroke="url(#g1)" stroke-width="2"/>
-          <circle cx="32" cy="32" r="18" stroke="#5b8cff" stroke-opacity=".6" stroke-width="2"/>
-          <circle cx="32" cy="32" r="6"  fill="#12d27c" />
-          <path d="M12 50 L30 34" stroke="#12d27c" stroke-width="3" stroke-linecap="round"/>
-          <path d="M44 20 l10 -10 m-7 0 h7 v7" stroke="#5b8cff" stroke-width="3" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="64" y2="64">
-              <stop stop-color="#5b8cff"/><stop offset="1" stop-color="#12d27c"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <!-- Hier dein Bild-Logo einbinden -->
+        <img src="nimrod-logo.png" alt="Nimrod Logo" class="logo">
         <div>
           <div class="wordmark" style="font-size:22px;">Nimrod</div>
           <div class="muted" style="font-size:13px;margin-top:-2px">Lokales Online-Marketing</div>
         </div>
       </div>
 
-      <span class="pill">Transparente Pakete · Monatlich kündbar</span>
+      <span class="pill">1 Monat gratis testen · Monatlich kündbar</span>
       <h1>Pakete & Preise</h1>
-      <p>Google Business (Maps), Social Media und Website – in smarten Paketen gebündelt, damit lokale Betriebe <strong>sichtbar</strong> werden und <strong>mehr Anfragen</strong> erhalten.</p>
+      <p>Google Business (Maps), Social Media und Website – sauber gebündelt. Fokus: <strong>mehr Sichtbarkeit</strong>, <strong>mehr Anrufe</strong>, <strong>mehr Buchungen</strong>.</p>
     </header>
+
+    <!-- Pakete -->
+    <div class="section" id="pakete">
+      <h2>Monatliche Pakete</h2>
+      <p class="kicker">Wähle das Level, das zu deinem Betrieb passt. Jederzeit upgrade-/kündbar.</p>
+
+      <div class="grid cols-3">
+        <!-- Starter -->
+        <div class="card">
+          <span class="badge">Empfohlen zum Start</span>
+          <h3>Starter · Google Business</h3>
+          <div class="price">200 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span><strong>Profil-Setup & Optimierung</strong> (Beschreibung, Leistungen, Öffnungszeiten, Keywords)</span></li>
+            <li><span class="dot"></span><span><strong>3–5 Fotos / Monat</strong> (Team/Salon/Projekte)</span></li>
+            <li><span class="dot"></span><span><strong>2–3 Beiträge / Monat</strong> (Angebote, News, Aktionen)</span></li>
+            <li><span class="dot"></span><span><strong>Bewertungs-Antworten</strong> (neu eingehende Rezensionen)</span></li>
+            <li><span class="dot"></span><span><strong>Monatlicher Check & Mini-Report</strong></span></li>
+          </ul>
+          <div class="hr"></div>
+          <a href="#kontakt" class="btn btn-primary">Starter anfragen</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="card">
+          <span class="badge">Meist gewählt</span>
+          <h3>Pro · GMB + Social</h3>
+          <div class="price">500 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Alles aus <strong>Starter</strong></span></li>
+            <li><span class="dot"></span><span><strong>1 Social-Kanal</strong> (Instagram <em>oder</em> Facebook): <strong>4–6 Posts / Monat</strong></span></li>
+            <li><span class="dot"></span><span><strong>Light Community-Management</strong> (Kommentare/DMs 1–2×/Woche)</span></li>
+            <li><span class="dot"></span><span><strong>TikTok optional</strong>: +2 Kurzvideos / Monat <span class="muted">(Add-on)</span></span></li>
+            <li><span class="dot"></span><span><strong>Bild-/Grafikaufbereitung</strong> (Basis)</span></li>
+          </ul>
+          <div class="hr"></div>
+          <a href="#kontakt" class="btn btn-primary">Pro anfragen</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="card">
+          <span class="badge">Alles aus einer Hand</span>
+          <h3>Premium · Komplett</h3>
+          <div class="price">1.000 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Alles aus <strong>Pro</strong></span></li>
+            <li><span class="dot"></span><span><strong>Website-Betreuung</strong>: Updates, Backups, <strong>1–2 kleine Änderungen / Monat</strong></span></li>
+            <li><span class="dot"></span><span><strong>Lokale SEO</strong>: Branchenverzeichnisse (Herold, FirmenABC, Yelp, Cylex …), On-Page-Feinschliff</span></li>
+            <li><span class="dot"></span><span><strong>Mehr Content</strong>: <strong>8–10 Social-Posts</strong> + <strong>4 Reels/TikToks</strong> / Monat</span></li>
+            <li><span class="dot"></span><span><strong>Monatsreport</strong> (Reichweite, Klicks, Anrufe, Top-Beiträge)</span></li>
+          </ul>
+          <div class="hr"></div>
+          <a href="#kontakt" class="btn btn-primary">Premium anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Website-Erstellung -->
+    <div class="section" id="website">
+      <h2>Website – Erstellung (einmalig)</h2>
+      <p class="kicker">Projektpreise – ideal für neue Auftritte oder Redesigns. Betreuung anschließend als Add-on.</p>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Basis – OnePager</h3>
+          <div class="price">600–800 € <small>einmalig</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>1 Seite (Abschnitte), mobil optimiert</span></li>
+            <li><span class="dot"></span><span>Kontaktformular, DSGVO-Basics</span></li>
+            <li><span class="dot"></span><span>GMB-Verknüpfung, Karte, Klick-Anruf</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Business – 3–5 Seiten</h3>
+          <div class="price">1.000–1.500 € <small>einmalig</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Start, Leistungen, Über uns, Kontakt, Blog/News</span></li>
+            <li><span class="dot"></span><span>SEO-Basics & Performance-Optimierung</span></li>
+            <li><span class="dot"></span><span>Einfache Landingpages für Aktionen</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Premium – Shop / Buchung</h3>
+          <div class="price">ab 2.000 € <small>einmalig</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Shop oder Online-Terminbuchung</span></li>
+            <li><span class="dot"></span><span>Erweiterte SEO/Tracking</span></li>
+            <li><span class="dot"></span><span>Individuelle Komponenten</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add-ons -->
+    <div class="section" id="addons">
+      <h2>Add-ons (flexibel zubuchbar)</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Website Basic Care</h3>
+          <div class="price">+100 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>CMS-/Plugin-Updates (1×/Monat)</span></li>
+            <li><span class="dot"></span><span>Monatliches Backup</span></li>
+            <li><span class="dot"></span><span>Mini-Änderungen (Texte/Bilder)</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Website Full Care</h3>
+          <div class="price">+300 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Alles aus Basic Care</span></li>
+            <li><span class="dot"></span><span>SEO-Feinschliff, Technical Checks</span></li>
+            <li><span class="dot"></span><span><strong>1–2 neue Inhalte / Monat</strong> (Blog/Landingpage)</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Social Extras</h3>
+          <div class="price">ab +100 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span><strong>TikTok Add-on</strong>: +2 Kurzvideos / Monat <span class="muted">(+100 €)</span></span></li>
+            <li><span class="dot"></span><span><strong>Zusätzlicher Kanal</strong> (z. B. FB + Insta): Spiegel-Posts & Betreuung <span class="muted">(+150 €)</span></span></li>
+            <li><span class="dot"></span><span>Mehr Posts? Individuelle Kontingente möglich</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Alle Preise netto. Bei Anwendung der Kleinunternehmerregelung erfolgt kein USt-Ausweis.</p>
+    </div>
+
+    <!-- Ergebnisse / KPI (Dokumentation) -->
+    <div class="section" id="ergebnisse">
+      <h2>Ergebnisse sichtbar machen</h2>
+      <p class="kicker">Wir dokumentieren „Vorher/Nachher“ – damit du Fortschritte schwarz auf weiß siehst.</p>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Was wir messen</h3>
+          <table class="table" aria-label="KPIs">
+            <tr><td>Profil-Aufrufe</td><td>Wie oft dein Profil bei Google gezeigt wird</td></tr>
+            <tr><td>Anrufe</td><td>Klicks auf „Anrufen“</td></tr>
+            <tr><td>Routen & Klicks</td><td>Wegbeschreibungen und Webseiten-Klicks</td></tr>
+            <tr><td>Bewertungen</td><td>Anzahl, Sterne, Antworten</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Wie wir’s dokumentieren</h3>
+          <div class="list">
+            <div>✅ <strong>Tag 1:</strong> Screenshots „Vorher“ (Profil & Statistiken)</div>
+            <div>✅ <strong>Laufend:</strong> Uploads/Posts kurz notieren</div>
+            <div>✅ <strong>Tag 30:</strong> Screenshots „Nachher“ (+ kurzer Report)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ablauf -->
+    <div class="section split" id="ablauf">
+      <div>
+        <h2>So läuft’s ab</h2>
+        <div class="card list">
+          <div><strong>1) Kickoff</strong> – Zugriff auf Google Business / Social / Website, Ziele & Region definieren.</div>
+          <div><strong>2) Quick Wins</strong> – Profil/Website aufräumen, erste Fotos & Beiträge, Verzeichnisse starten.</div>
+          <div><strong>3) Laufender Betrieb</strong> – Posts & Pflege gemäß Paket, Berichte, Optimierungen.</div>
+        </div>
+      </div>
+      <div>
+        <h2>Fair & flexibel</h2>
+        <div class="card list">
+          <div>Monatlich kündbar ab dem 2. Monat. Upgrade/Downgrade jederzeit.</div>
+          <div>Transparente Reports. Inhalte bleiben beim Kunden.</div>
+          <div class="ok">1 Monat gratis testen – ohne Risiko.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section" id="faq">
+      <h2>FAQ</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Was passiert nach dem Gratismonat?</h3>
+          <p>Wir zeigen dir die Ergebnisse. Wenn du zufrieden bist, starten wir ins <strong>Starter-</strong>, <strong>Pro-</strong> oder <strong>Premium-Paket</strong>. Wenn nicht, endet es einfach.</p>
+        </div>
+        <div class="card">
+          <h3>Wer erstellt Fotos & Posts?</h3>
+          <p>Wir übernehmen das. Du kannst Material schicken – oder wir machen einfache Bilder/Clips vor Ort (nach Absprache).</p>
+        </div>
+        <div class="card">
+          <h3>Brauche ich eine neue Website?</h3>
+          <p>Nicht zwingend. Viele Betriebe gewinnen schon über Google Maps. Wenn die Website alt ist, bieten wir günstige OnePager an.</p>
+        </div>
+        <div class="card">
+          <h3>Wie schnell sehe ich Ergebnisse?</h3>
+          <p>Oft innerhalb von 2–4 Wochen: mehr Aufrufe, mehr Anrufe, bessere Außenwirkung (Fotos, Bewertungen, Posts).</p>
+        </div>
+      </div>
+    </div>
 
     <!-- Kontakt -->
     <div id="kontakt" class="section">
       <h2>Kontakt & Angebot</h2>
       <div class="card">
-        <p class="muted">Sag kurz, welches Paket dich interessiert und welche Kanäle du nutzt – ich melde mich mit einer passenden Empfehlung.</p>
+        <p class="muted">Sag kurz, welches Paket dich interessiert und welche Kanäle du nutzt – wir melden uns mit einer passenden Empfehlung.</p>
         <div style="display:grid;gap:10px">
-          <div><strong>Kontakt:</strong> 
-            <a href="mailto:nmrodagent@gmail.com">nmrodagent@gmail.com</a> · 
+          <div><strong>Kontakt:</strong>
+            <a href="mailto:nmrodagent@gmail.com">nmrodagent@gmail.com</a> ·
             <a href="tel:+436644623784">+43 664 4623784</a>
           </div>
           <a class="btn btn-primary" href="mailto:nmrodagent@gmail.com?subject=Anfrage%20Pakete%20Nimrod">Unverbindlich anfragen</a>
@@ -98,11 +289,7 @@
 
     <footer>
       <div class="footbrand">
-        <svg class="logo" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" stroke="url(#g2)" stroke-width="2"/>
-          <circle cx="32" cy="32" r="6"  fill="#12d27c" />
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#5b8cff"/><stop offset="1" stop-color="#12d27c"/></linearGradient></defs>
-        </svg>
+        <img src="nimrod-logo.png" alt="Nimrod Logo" class="logo" style="width:28px;height:28px">
         <div>© <span id="y"></span> Nimrod – Lokales Online-Marketing</div>
       </div>
       <div class="muted">Impressum · Datenschutz</div>
