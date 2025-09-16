@@ -1,151 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NIMROD – Lokale GMB-Agentur</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pakete & Preise – Deine Lokale Marketing-Agentur</title>
+  <meta name="description" content="Google Business Profil, Social Media, Website – Pakete & Preise für lokale Unternehmen." />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
-      color: #333;
+    :root{
+      --bg:#0b0d10; --card:#11151a; --muted:#8692a6; --text:#e9eef6;
+      --brand:#5b8cff; --accent:#12d27c; --danger:#ff6b6b; --ring:rgba(91,140,255,.25);
+      --radius:18px; --gap:18px; --max:1100px;
     }
-    header {
-      background: linear-gradient(to right, #0056b3, #007bff);
-      color: white;
-      padding: 3rem 1rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    *{box-sizing:border-box}
+    html,body{margin:0;background:linear-gradient(180deg,#0b0d10 0%,#0e1217 100%);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+    a{color:var(--brand);text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    header{display:grid;gap:12px;margin:8px 0 24px}
+    header h1{font-size:clamp(28px,4vw,42px);margin:0}
+    header p{margin:0;color:var(--muted);max-width:70ch}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(91,140,255,.12);border:1px solid var(--ring);color:#cfe0ff;padding:6px 10px;border-radius:999px;font-size:12px}
+    .grid{display:grid;gap:var(--gap)}
+    @media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} }
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius);
+      padding:22px; position:relative; overflow:hidden
     }
-    header::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.07) 30%, transparent 70%);
-      animation: spin 40s linear infinite;
-      z-index: 0;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    header .logo {
-      max-width: 140px;
-      margin: 0 auto 1rem;
-      z-index: 1;
-      position: relative;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.05);
-      padding: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-    h1, p {
-      z-index: 1;
-      position: relative;
-    }
-    section {
-      padding: 3rem 1.5rem;
-      animation: fadeIn 1s ease-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .angebot {
-      background: white;
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: transform 0.4s, box-shadow 0.4s;
-    }
-    .angebot:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-    h2 {
-      color: #007bff;
-      margin-bottom: 1.5rem;
-      font-size: 1.8rem;
-      text-align: center;
-    }
-    h3 {
-      color: #333;
-    }
-    ul {
-      padding-left: 1.5rem;
-      line-height: 1.6;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      background: #f1f3f5;
-      font-size: 0.95rem;
-    }
-    a {
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      header, section { padding: 1rem; }
-      .angebot { padding: 1rem; }
-      h1 { font-size: 1.5rem; }
-    }
+    .card h3{margin:0 0 8px;font-size:20px}
+    .price{font-size:28px;font-weight:700;margin:6px 0 12px}
+    .price small{font-weight:500;color:var(--muted);font-size:14px}
+    ul.features{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    ul.features li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:flex-start}
+    .dot{width:8px;height:8px;border-radius:50%;margin-top:7px;background:var(--accent)}
+    .muted{color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text);font-weight:600}
+    .btn-primary{background:var(--brand);border-color:transparent;color:white;box-shadow:0 6px 18px rgba(91,140,255,.25)}
+    .tag{font-size:12px;color:#ffdca8;background:rgba(255,198,109,.12);border:1px solid rgba(255,198,109,.25);padding:4px 8px;border-radius:999px}
+    .stack{display:grid;gap:10px}
+    .section{margin:36px 0 14px}
+    .section h2{margin:0 0 8px;font-size:24px}
+    .kicker{color:var(--muted);margin:0 0 18px}
+    .split{display:grid;gap:var(--gap)}
+    @media(min-width:900px){ .split{grid-template-columns:1.1fr .9fr} }
+    footer{margin:36px 0 12px;color:var(--muted);font-size:14px}
+    .badge{position:absolute;top:14px;right:14px}
+    .warn{color:#ffb4b4}
+    .note{font-size:13px;color:var(--muted)}
+    .hr{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);margin:16px 0}
   </style>
 </head>
 <body>
-  <header>
-    <img src="nimrod-logo.png" alt="NIMROD Logo" class="logo">
-    <h1>NIMROD – Deine GMB-Agentur für mehr lokale Kunden</h1>
-    <p>Google Business Profil Optimierung | Rezensionen | Backlinks</p>
-  </header>
+  <div class="wrap">
+    <header>
+      <span class="pill">Transparente Pakete · Monatlich kündbar</span>
+      <h1>Pakete & Preise</h1>
+      <p>Google Business Profil (Maps), Social Media und Website – alles so gebündelt, dass lokale Betriebe <strong>sichtbar</strong> werden und <strong>mehr Anfragen</strong> bekommen.</p>
+    </header>
 
-  <section>
-    <h2>Was ich für dein Unternehmen tun kann:</h2>
-    <div class="angebot">
-      <h3>Starter Paket – 99€ (einmalig)</h3>
-      <ul>
-        <li>GMB-Profil-Optimierung</li>
-        <li>Texte, Bilder, Keywords, Öffnungszeiten</li>
-        <li>Beratung inklusive</li>
-      </ul>
+    <!-- Paketübersicht -->
+    <div class="section">
+      <h2>Monatliche Pakete</h2>
+      <p class="kicker">Wähle das Level, das zu deinem Betrieb passt. Jederzeit upgrade-/kündbar.</p>
+      <div class="grid cols-3">
+        <!-- Starter -->
+        <div class="card">
+          <span class="badge tag">Empfohlen zum Start</span>
+          <h3>Starter · Google Business</h3>
+          <div class="price">200 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span><strong>Profil-Setup & Optimierung</strong> (Beschreibung, Leistungen, Öffnungszeiten, Keywords)</span></li>
+            <li><span class="dot"></span><span><strong>3–5 Fotos / Monat</strong> (Salon/Team/Projekte)</span></li>
+            <li><span class="dot"></span><span><strong>2–3 Beiträge / Monat</strong> (Angebote, News, Aktionen)</span></li>
+            <li><span class="dot"></span><span><strong>Bewertungs-Antworten</strong> (neu eingehende Rezensionen)</span></li>
+            <li><span class="dot"></span><span><strong>Monatlicher Check & Mini-Report</strong></span></li>
+          </ul>
+          <div class="hr"></div>
+          <a href="#kontakt" class="btn btn-primary">Starter anfragen</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="card">
+          <span class="badge tag">Meist gewählt</span>
+          <h3>Pro · GMB + Social</h3>
+          <div class="price">500 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Alles aus <strong>Starter</strong></span></li>
+            <li><span class="dot"></span><span><strong>1 Social-Kanal</strong> (Instagram <em>oder</em> Facebook): <strong>4–6 Posts / Monat</strong> inkl. Caption</span></li>
+            <li><span class="dot"></span><span><strong>Leichtes Community-Management</strong> (Kommentare/DMs 1–2×/Woche)</span></li>
+            <li><span class="dot"></span><span><strong>TikTok optional</strong>: +2 Kurzvideos / Monat <span class="muted">(Add-on unten)</span></span></li>
+            <li><span class="dot"></span><span><strong>Bild-/Grafikaufbereitung</strong> (Basics, Brand-anmutung)</span></li>
+          </ul>
+          <div class="hr"></div>
+          <a href="#kontakt" class="btn btn-primary">Pro anfragen</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="card">
+          <span class="badge tag">Alles aus einer Hand</span>
+          <h3>Premium · Komplett</h3>
+          <div class="price">1.000 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Alles aus <strong>Pro</strong></span></li>
+            <li><span class="dot"></span><span><strong>Website-Betreuung</strong>: Updates, Backups, <strong>1–2 kleine Änderungen / Monat</strong></span></li>
+            <li><span class="dot"></span><span><strong>Lokale SEO</strong>: Branchenverzeichnisse (Herold, FirmenABC, Yelp, Cylex …), On-Page-Feinschliff</span></li>
+            <li><span class="dot"></span><span><strong>Mehr Content</strong>: <strong>8–10 Social Posts</strong> + <strong>4 Reels/TikToks</strong> / Monat</span></li>
+            <li><span class="dot"></span><span><strong>Monatsreport</strong> (Reichweite, Klicks, Anrufe, Top-Beiträge)</span></li>
+          </ul>
+          <div class="hr"></div>
+          <a href="#kontakt" class="btn btn-primary">Premium anfragen</a>
+        </div>
+      </div>
     </div>
 
-    <div class="angebot">
-      <h3>Pro Paket – 199€/Monat</h3>
-      <ul>
-        <li>Starter Paket enthalten</li>
-        <li>3 Google Posts / Monat</li>
-        <li>Bewertungsmanagement</li>
-        <li>Monatsreporting</li>
-      </ul>
+    <!-- Website-Erstellung (einmalig) -->
+    <div class="section">
+      <h2>Website – Erstellung (einmalig)</h2>
+      <p class="kicker">Projektpreise – ideal für neue oder zu modernisierende Auftritte. Betreuung danach als Add-on (siehe unten).</p>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Basis – OnePager</h3>
+          <div class="price">600–800 € <small>einmalig</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>1 Seite (Abschnitte), mobil optimiert</span></li>
+            <li><span class="dot"></span><span>Kontaktformular, DSGVO-Basics</span></li>
+            <li><span class="dot"></span><span>GMB-Verknüpfung, Karte, Klick-Anruf</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Business – 3–5 Seiten</h3>
+          <div class="price">1.000–1.500 € <small>einmalig</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Start, Leistungen, Über uns, Kontakt, Blog/News</span></li>
+            <li><span class="dot"></span><span>SEO-Basics & Performance-Optimierung</span></li>
+            <li><span class="dot"></span><span>Einfache Landingpages für Aktionen</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Premium – Shop / Buchung</h3>
+          <div class="price">ab 2.000 € <small>einmalig</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Shop oder Online-Terminbuchung</span></li>
+            <li><span class="dot"></span><span>Erweiterte SEO/Tracking</span></li>
+            <li><span class="dot"></span><span>Individuelle Komponenten</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="angebot">
-      <h3>Premium Paket – 299€/Monat</h3>
-      <ul>
-        <li>Pro Paket enthalten</li>
-        <li>Backlink-Service (10 Citations pro Monat)</li>
-        <li>Erweiterte SEO-Optimierung</li>
-        <li>Zusätzliche Beratung</li>
-      </ul>
+    <!-- Add-ons -->
+    <div class="section">
+      <h2>Add-ons (flexibel zubuchbar)</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Website Basic Care</h3>
+          <div class="price">+100 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>CMS-/Plugin-Updates (1×/Monat)</span></li>
+            <li><span class="dot"></span><span>Monatliches Backup</span></li>
+            <li><span class="dot"></span><span>Mini-Änderungen (Texte/Bilder)</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Website Full Care</h3>
+          <div class="price">+300 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span>Alles aus Basic Care</span></li>
+            <li><span class="dot"></span><span>SEO-Feinschliff, Technical Checks</span></li>
+            <li><span class="dot"></span><span><strong>1–2 neue Inhalte / Monat</strong> (Blog/Landingpage)</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Social Extras</h3>
+          <div class="price">ab +100 € <small>/ Monat</small></div>
+          <ul class="features">
+            <li><span class="dot"></span><span><strong>TikTok Add-on</strong>: +2 Kurzvideos / Monat <span class="muted">(+100 €)</span></span></li>
+            <li><span class="dot"></span><span><strong>Zusätzlicher Kanal</strong> (z. B. FB + Insta): Spiegel-Posts & Betreuung <span class="muted">(+150 €)</span></span></li>
+            <li><span class="dot"></span><span>Mehr Posts? Individuelle Kontingente möglich</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Alle Preise netto. Kleinunternehmerregelung möglich (sofern anwendbar) – dann ohne USt-Ausweis.</p>
     </div>
 
-    <p><strong>Interessiert?</strong> Schreib mir per WhatsApp: <a href="https://wa.me/436644623783">+43 664 4623783</a><br />Oder per E-Mail: <a href="mailto:nmrodagent@gmail.com">nmrodagent@gmail.com</a></p>
-  </section>
+    <!-- Wie läuft's ab -->
+    <div class="section split">
+      <div>
+        <h2>So läuft’s ab</h2>
+        <div class="card stack">
+          <div><strong>1) Kickoff</strong> – Zugriff auf Google Business / Social / Website, Ziele & Region definieren.</div>
+          <div><strong>2) Setup & Quick Wins</strong> – Profil/Website aufräumen, erste Fotos & Beiträge, Verzeichnisse starten.</div>
+          <div><strong>3) Laufender Betrieb</strong> – Posts & Pflege gemäß Paket, Berichte, Optimierungen.</div>
+        </div>
+      </div>
+      <div>
+        <h2>Fair & flexibel</h2>
+        <div class="card stack">
+          <div>Monatlich kündbar ab dem 2. Monat. Upgrade/Downgrade jederzeit.</div>
+          <div>Transparente Reports. Inhalte bleiben beim Kunden.</div>
+          <div class="warn">Kein Long-Term Lock-in. Wir liefern Leistung, damit du bleiben <em>willst</em>.</div>
+        </div>
+      </div>
+    </div>
 
-  <footer>
-    &copy; 2025 NIMROD – Lokale Sichtbarkeit, die wirkt.
-  </footer>
+    <!-- Kontakt -->
+    <div id="kontakt" class="section">
+      <h2>Kontakt & Angebot</h2>
+      <div class="card">
+        <p class="muted">Sag kurz, welches Paket dich interessiert und welche Kanäle du nutzt – ich melde mich mit einer passenden Empfehlung.</p>
+        <div class="stack">
+          <div><strong>Kontakt:</strong> <a href="mailto:dein.name@agentur.at">dein.name@agentur.at</a> · <a href="tel:+43XXXXXXXXX">+43 XX XXX XX XX</a></div>
+          <a class="btn btn-primary" href="mailto:dein.name@agentur.at?subject=Anfrage%20Pakete%20%26%20Preise">Unverbindlich anfragen</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>© <span id="y"></span> Deine Agentur – Lokales Online-Marketing</footer>
+  </div>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
